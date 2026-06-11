@@ -1,0 +1,62 @@
+import { useEffect, useState } from "react";
+import Lenis from "lenis";
+import { gsap, ScrollTrigger, prefersReducedMotion } from "./lib/gsap";
+import { Preloader } from "./components/Preloader";
+import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
+import { Ticker } from "./components/Ticker";
+import { Pipeline } from "./components/Pipeline";
+import { Features } from "./components/Features";
+import { DevSection } from "./components/DevSection";
+import { UseCases } from "./components/UseCases";
+import { Pricing } from "./components/Pricing";
+import { FinalCTA } from "./components/FinalCTA";
+import { Footer } from "./components/Footer";
+
+export default function App() {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    if (prefersReducedMotion()) {
+      document.documentElement.classList.add("reduced-motion");
+      return;
+    }
+
+    const lenis = new Lenis({ lerp: 0.12, anchors: true });
+    lenis.on("scroll", ScrollTrigger.update);
+    const tick = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(tick);
+    gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      gsap.ticker.remove(tick);
+      lenis.destroy();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!ready) return;
+    const refresh = () => ScrollTrigger.refresh();
+    if (document.readyState === "complete") refresh();
+    else window.addEventListener("load", refresh, { once: true });
+    return () => window.removeEventListener("load", refresh);
+  }, [ready]);
+
+  return (
+    <>
+      <Preloader onDone={() => setReady(true)} />
+      <Navbar started={ready} />
+      <main>
+        <Hero started={ready} />
+        <Ticker />
+        <Pipeline />
+        <Features />
+        <DevSection />
+        <UseCases />
+        <Pricing />
+        <FinalCTA />
+      </main>
+      <Footer />
+    </>
+  );
+}

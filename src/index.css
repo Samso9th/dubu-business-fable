@@ -1,0 +1,333 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Gegola";
+  src: url("/fonts/gegola.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* ── Dubu Business design tokens ── */
+@theme {
+  /* Surfaces — true black machine room */
+  --color-void: hsl(0 0% 4%);
+  --color-panel: hsl(0 0% 7%);
+  --color-panel-raised: hsl(0 0% 10%);
+
+  /* Brand */
+  --color-volt: hsl(137 78% 46%);
+  --color-volt-deep: hsl(137 78% 32%);
+  --color-volt-dim: hsl(137 50% 16%);
+  --color-gold: hsl(44 93% 51%);
+  --color-gold-deep: hsl(38 90% 40%);
+
+  /* Text */
+  --color-white-soft: hsl(0 0% 96%);
+  --color-gray: hsl(0 0% 56%);
+  --color-gray-dim: hsl(0 0% 36%);
+
+  --color-line: hsl(0 0% 14%);
+  --color-line-bright: hsl(0 0% 22%);
+
+  /* Fonts */
+  --font-display: "Gegola", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-white-soft);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+::selection {
+  background-color: hsl(137 78% 46% / 0.3);
+  color: hsl(0 0% 98%);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(0 0% 20%);
+  border-radius: 3px;
+}
+
+/* ── Type ── */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+.display-hero {
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 6vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4.25rem);
+  line-height: 1.04;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.kicker-mono {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1.5px hsl(0 0% 96% / 0.2);
+  color: transparent;
+}
+
+.text-outline-volt {
+  -webkit-text-stroke: 1.5px hsl(137 78% 46% / 0.6);
+  color: transparent;
+}
+
+/* ── Blueprint grid backdrop ── */
+.blueprint {
+  background-image:
+    linear-gradient(hsl(0 0% 100% / 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(0 0% 100% / 0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.blueprint-fade {
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 30%, transparent 75%);
+}
+
+/* ── Scanline sweep for terminal feel ── */
+.scanline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 3px,
+    hsl(0 0% 100% / 0.012) 3px,
+    hsl(0 0% 100% / 0.012) 4px
+  );
+  border-radius: inherit;
+}
+
+/* ── Marquee ── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 30s) linear infinite;
+}
+
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+
+.marquee-paused:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-duration: 140s;
+  }
+}
+
+/* ── Terminal cursor ── */
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ── Equalizer bars (terminal status) ── */
+.eq-bar {
+  transform-origin: bottom;
+  animation: eq 0.9s ease-in-out infinite;
+}
+
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eq-bar { animation: none; }
+}
+
+/* ── Pulse dot ── */
+.pulse-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: currentColor;
+  animation: pulseRing 2s ease-out infinite;
+}
+
+@keyframes pulseRing {
+  from { transform: scale(1); opacity: 0.6; }
+  to { transform: scale(3); opacity: 0; }
+}
+
+/* ── Flowing dash for pipeline ── */
+.flow-dash {
+  stroke-dasharray: 6 10;
+  animation: flowDash 1.2s linear infinite;
+}
+
+@keyframes flowDash {
+  to { stroke-dashoffset: -16; }
+}
+
+/* ── Buttons ── */
+.btn-volt {
+  position: relative;
+  background: linear-gradient(135deg, hsl(137 78% 46%), hsl(137 78% 34%));
+  color: hsl(0 0% 4%);
+  box-shadow: 0 8px 32px -10px hsl(137 78% 46% / 0.5);
+  transition: transform 0.35s var(--ease-out-expo), box-shadow 0.35s var(--ease-out-expo);
+}
+
+.btn-volt:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 44px -10px hsl(137 78% 46% / 0.6);
+}
+
+.btn-ghost {
+  border: 1px solid hsl(0 0% 20%);
+  transition: border-color 0.3s, background-color 0.3s, transform 0.35s var(--ease-out-expo);
+}
+
+.btn-ghost:hover {
+  border-color: hsl(137 78% 46% / 0.55);
+  background-color: hsl(137 78% 46% / 0.06);
+  transform: translateY(-2px);
+}
+
+/* ── Cards ── */
+.card-machine {
+  position: relative;
+  background: linear-gradient(165deg, hsl(0 0% 9%), hsl(0 0% 5.5%));
+  border: 1px solid hsl(0 0% 14%);
+  transition: border-color 0.4s, transform 0.5s var(--ease-out-expo), box-shadow 0.5s;
+}
+
+.card-machine:hover {
+  border-color: hsl(137 78% 46% / 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 24px 48px -24px hsl(0 0% 0% / 0.9), 0 0 56px -24px hsl(137 78% 46% / 0.3);
+}
+
+/* corner ticks on machine cards */
+.corner-ticks::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, hsl(0 0% 30%) 8px, transparent 8px) top left,
+    linear-gradient(to bottom, hsl(0 0% 30%) 8px, transparent 8px) top left,
+    linear-gradient(to left, hsl(0 0% 30%) 8px, transparent 8px) top right,
+    linear-gradient(to bottom, hsl(0 0% 30%) 8px, transparent 8px) top right,
+    linear-gradient(to right, hsl(0 0% 30%) 8px, transparent 8px) bottom left,
+    linear-gradient(to top, hsl(0 0% 30%) 8px, transparent 8px) bottom left,
+    linear-gradient(to left, hsl(0 0% 30%) 8px, transparent 8px) bottom right,
+    linear-gradient(to top, hsl(0 0% 30%) 8px, transparent 8px) bottom right;
+  background-size: 12px 1px, 1px 12px, 12px 1px, 1px 12px, 12px 1px, 1px 12px, 12px 1px, 1px 12px;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.corner-ticks:hover::after {
+  opacity: 1;
+}
+
+/* nav blur */
+.nav-solid {
+  background: hsl(0 0% 4% / 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid hsl(0 0% 13%);
+}
+
+/* range slider */
+input[type="range"].fee-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to right, var(--color-volt) var(--fill, 50%), hsl(0 0% 18%) var(--fill, 50%));
+  outline: none;
+}
+
+input[type="range"].fee-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: var(--color-volt);
+  border: 3px solid hsl(0 0% 4%);
+  box-shadow: 0 0 0 1px var(--color-volt), 0 0 16px -2px hsl(137 78% 46% / 0.8);
+  cursor: pointer;
+}
+
+input[type="range"].fee-slider::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: var(--color-volt);
+  border: 3px solid hsl(0 0% 4%);
+  box-shadow: 0 0 0 1px var(--color-volt);
+  cursor: pointer;
+}
+
+/* initial-hidden elements revealed by GSAP */
+[data-reveal] {
+  opacity: 0;
+}
+
+html.reduced-motion [data-reveal] {
+  opacity: 1;
+}
