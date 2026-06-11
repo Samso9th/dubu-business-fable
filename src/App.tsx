@@ -36,7 +36,8 @@ export default function App() {
 
   useEffect(() => {
     if (!ready) return;
-    const refresh = () => ScrollTrigger.refresh();
+    // defer the (layout-heavy) refresh a frame so the hero intro animates on a clean thread
+    const refresh = () => requestAnimationFrame(() => ScrollTrigger.refresh());
     if (document.readyState === "complete") refresh();
     else window.addEventListener("load", refresh, { once: true });
     return () => window.removeEventListener("load", refresh);

@@ -250,8 +250,14 @@ export function Hero({ started }: { started: boolean }) {
       {/* blueprint grid + glow */}
       <div className="blueprint blueprint-fade absolute inset-0" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute right-[-12%] top-[-18%] h-[560px] w-[560px] rounded-full bg-volt/[0.06] blur-[140px]" />
-        <div className="absolute bottom-[-22%] left-[-8%] h-[460px] w-[460px] rounded-full bg-gold/[0.05] blur-[120px]" />
+        <div
+          className="absolute right-[-18%] top-[-26%] h-[780px] w-[780px] rounded-full"
+          style={{ background: "radial-gradient(circle, hsl(137 78% 46% / 0.11), transparent 62%)" }}
+        />
+        <div
+          className="absolute bottom-[-30%] left-[-14%] h-[640px] w-[640px] rounded-full"
+          style={{ background: "radial-gradient(circle, hsl(44 93% 51% / 0.09), transparent 62%)" }}
+        />
       </div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_minmax(440px,1fr)] lg:gap-10">

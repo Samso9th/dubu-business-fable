@@ -33,7 +33,8 @@ export function FinalCTA() {
       <div
         data-glow
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-volt/[0.07] blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[660px] w-[660px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{ background: "radial-gradient(circle, hsl(137 78% 46% / 0.11), transparent 60%)" }}
       />
 
       <div className="relative z-10 mx-auto max-w-4xl px-5 sm:px-8">
