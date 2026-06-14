@@ -1,6 +1,14 @@
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { gsap, useGSAP, prefersReducedMotion } from "../lib/gsap";
 import { FOOTER_COLS, DASHBOARD_URL } from "../data/content";
+
+const LEGAL_LINKS = [
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
+  { to: "/privacy", label: "Privacy" },
+  { to: "/terms", label: "Terms" },
+];
 
 export function Footer() {
   const root = useRef<HTMLElement>(null);
@@ -73,8 +81,15 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-3 border-t border-line py-6 font-mono text-[11px] text-gray-dim sm:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-line py-6 font-mono text-[11px] text-gray-dim sm:flex-row">
           <span>© {new Date().getFullYear()} Dubu. All rights reserved.</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            {LEGAL_LINKS.map((l) => (
+              <Link key={l.to} to={l.to} className="transition-colors hover:text-white-soft">
+                {l.label}
+              </Link>
+            ))}
+          </div>
           <span>status: <span className="text-volt">● all rails operational</span></span>
         </div>
       </div>
