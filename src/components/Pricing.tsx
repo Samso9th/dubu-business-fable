@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { useGSAP, revealUp } from "../lib/gsap";
-import { PRICING, REVENUE_SPLIT, DASHBOARD_URL, DEMO_URL } from "../data/content";
+import { PRICING, REVENUE_SPLIT, DASHBOARD_URL, DEMO_URL, type PricingTier } from "../data/content";
 
-type Tier = typeof PRICING.local;
+type Tier = PricingTier;
 
 function fmt(currency: string, value: number, decimals = 0) {
   return (
@@ -14,11 +14,27 @@ function fmt(currency: string, value: number, decimals = 0) {
   );
 }
 
+// Fee for a given amount under either the simple (rate+cap) or tiered model.
+// Returns the fee and whether the simple model hit its cap.
+function feeFor(tier: Tier, amount: number): { fee: number; capped: boolean } {
+  if (tier.tiers) {
+    for (const t of tier.tiers) {
+      if ("flat" in t) {
+        if (amount < t.upTo) return { fee: t.flat, capped: false };
+      } else {
+        return { fee: Math.max(amount * t.rate, t.min), capped: false };
+      }
+    }
+    return { fee: 0, capped: false };
+  }
+  const rawFee = amount * (tier.rate ?? 0);
+  const cap = tier.cap ?? Infinity;
+  return { fee: Math.min(rawFee, cap), capped: rawFee > cap };
+}
+
 function TierCard({ tier, featured }: { tier: Tier; featured?: boolean }) {
   const [amount, setAmount] = useState(tier.sliderDefault);
-  const rawFee = amount * tier.rate;
-  const fee = Math.min(rawFee, tier.cap);
-  const capped = rawFee > tier.cap;
+  const { fee, capped } = feeFor(tier, amount);
   const decimals = tier.currency === "$" ? 2 : 0;
   const fill = ((amount - tier.sliderMin) / (tier.sliderMax - tier.sliderMin)) * 100;
 

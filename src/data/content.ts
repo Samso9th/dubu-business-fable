@@ -24,7 +24,7 @@ export const HERO_VERBS = [
 
 export const TICKER_ITEMS = [
   "0.85% NGN collections",
-  "1.5% USD payments",
+  "USD payments from $1",
   "<5 min settlement",
   "50+ countries",
   "99.7% settlement rate",
@@ -202,7 +202,29 @@ export const USE_CASES = [
   { num: "08", title: "FX-enabled checkout", body: "Convert between USD, NGN, and crypto with controlled rates and preferred settlement." },
 ];
 
-export const PRICING = {
+// A tier is either a flat fee below a ceiling, or a percentage (with a min) above.
+export type PricingFlatTier = { upTo: number; flat: number };
+export type PricingRateTier = { rate: number; min: number };
+
+export type PricingTier = {
+  title: string;
+  subtitle: string;
+  rateLabel: string;
+  capLabel: string;
+  currency: string;
+  sliderMin: number;
+  sliderMax: number;
+  sliderStep: number;
+  sliderDefault: number;
+  features: string[];
+  // Simple model (NGN): single rate + cap.
+  rate?: number;
+  cap?: number;
+  // Tiered model (USD): evaluated in order; first matching FlatTier wins, else the RateTier.
+  tiers?: (PricingFlatTier | PricingRateTier)[];
+};
+
+export const PRICING: { local: PricingTier; intl: PricingTier } = {
   local: {
     title: "Local payments",
     subtitle: "NGN transactions",
@@ -227,17 +249,21 @@ export const PRICING = {
   intl: {
     title: "International payments",
     subtitle: "USD via ACH & SWIFT",
-    rate: 0.015,
-    rateLabel: "1.5%",
-    cap: 8.5,
-    capLabel: "capped at $8.50",
+    // Tiered: $1 under $300, $2.50 to $1,000, then 0.4% (min $2.50). Same to send & receive.
+    rateLabel: "from $1",
+    capLabel: "0.4% above $1,000",
     currency: "$",
     sliderMin: 50,
     sliderMax: 10000,
     sliderStep: 50,
     sliderDefault: 567,
+    tiers: [
+      { upTo: 300, flat: 1 },
+      { upTo: 1000, flat: 2.5 },
+      { rate: 0.004, min: 2.5 },
+    ],
     features: [
-      "USD payments via ACH & SWIFT",
+      "USD send & receive via ACH & SWIFT",
       "USD virtual accounts",
       "Cross-border payouts",
       "Checkout links & invoicing",
