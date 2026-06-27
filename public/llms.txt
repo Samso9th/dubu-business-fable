@@ -1,0 +1,102 @@
+# Dubu Business
+
+## About
+Dubu Business is a payment infrastructure platform for fintech builders, remittance platforms, and businesses that need to move money across borders at scale. It provides a single API to accept USD, NGN, and stablecoins (USDT/USDC), convert currencies with controlled rates, and settle funds in under 5 minutes. Built for developers and financial operators who need programmable, cross-border payment rails — not a hosted checkout product.
+
+## The Payment Pipeline
+
+### 01 · Accept — Customer pays in their currency
+USD via ACH/Wire, NGN via NUBAN virtual accounts, or USDT/USDC on-chain. One payment session, every rail open.
+
+### 02 · Verify — Webhooks confirm instantly
+Signed payloads hit your endpoint the moment money lands. No polling, no manual chasing, no stalled transfers.
+
+### 03 · Convert — The FX engine does the math
+Controlled rates between USD, NGN, and stablecoins — transparent pricing, no hidden spread.
+
+### 04 · Settle — Funds land in under 5 minutes
+NGN bank accounts, external USD destinations, or crypto wallets — routed by rules you define.
+
+## Features
+
+- Cross-border payments: Accept USD, NGN, and stablecoins in one unified flow — built for international customers and Nigerian collections
+- API + webhooks: Create payment sessions, verify via signed webhooks, automate fulfillment end-to-end
+- USD infrastructure: Issue USD virtual accounts, receive via ACH/Wire, pay out to external USD accounts
+- NGN collections: NUBAN virtual accounts for local payments, unified with global reporting
+- Crypto payments: USDT/USDC deposit addresses, withdrawals, and on-chain transfers — auto-reconciled
+- Checkout links: No-code payment links and invoices — share via email or WhatsApp, track everything
+- Fast payouts: Withdraw to NGN banks, send crypto to wallets, or settle in USD — most payouts in under 5 minutes
+
+## Pricing
+
+### NGN (Local payments)
+- Rate: 0.85% flat
+- No cap
+- Includes: NGN bank transfers, NUBAN virtual accounts, checkout links, instant settlement, webhooks, dashboard analytics
+
+### USD (International payments via ACH & SWIFT)
+- Under $300: flat $1 fee
+- $300 to $1,000: flat $2.50 fee
+- Above $1,000: 0.4% (minimum $2.50)
+- Includes: USD send & receive via ACH & SWIFT, USD virtual accounts, cross-border payouts, webhooks, dashboard analytics
+
+### Revenue Split (High-volume merchants)
+Custom revenue-sharing for merchants processing ₦100M+ monthly — reduced effective rate as volume grows, dedicated account manager, priority settlement.
+
+## Use Cases
+- Global remittances: Fast, low-cost transfers across borders with USD, NGN, and stablecoin rails
+- Stablecoin on/off ramps: Collect USDT/USDC, settle to fiat, route liquidity with programmable policies
+- Borderless banking: Multi-currency accounts so users can hold, pay, and settle globally
+- International SaaS billing: Accept global payments, confirm via webhooks, provision access instantly
+- Marketplace payments: Collect from buyers worldwide, pay sellers locally with rule-based settlement
+- Cross-border payouts: Withdraw to NGN accounts, send USD externally, or route crypto to wallets
+- Digital goods & vouchers: Create sessions, verify instantly, fulfill orders automatically via API
+- FX-enabled checkout: Convert between USD, NGN, and crypto with controlled rates
+
+## Key Stats
+- Settlement time: under 5 minutes for most payouts
+- Supported rails: ACH, SWIFT/Wire, NUBAN virtual accounts, USDT/USDC on-chain
+- Countries: 50+
+- NGN settlement rate: 99.7%
+- USD payments from: $1
+
+## API Overview
+- Base URL: https://api.dubupay.com/v1
+- Auth: Bearer token (sk_live_… for production, sk_test_… for sandbox)
+- Webhooks: HMAC-SHA512 signed payloads
+- Idempotency: supported — safe retries
+- Key endpoints: POST /sessions, POST /payouts, GET /transactions
+
+## Contact
+- Website: https://business.dubupay.com
+- Dashboard: https://merchant.dubupay.com
+- Documentation: https://docs.dubupay.com
+- Book a demo: https://forms.gle/wAvp4gazqpJrccm77
+- Support: support@dubupay.com
+- Sales: sales@dubupay.com
+- Twitter/X: https://x.com/dubupay
+- LinkedIn: https://www.linkedin.com/company/dubupay/
+- Instagram: https://www.instagram.com/dubupay
+
+## Frequently Asked Questions
+
+Q: What is Dubu Business?
+A: Dubu Business is a payment infrastructure API for businesses that need to accept cross-border payments, convert currencies, and settle funds fast — across USD, NGN, and stablecoins.
+
+Q: What currencies and rails does Dubu Business support?
+A: USD via ACH and SWIFT/Wire, NGN via NUBAN virtual accounts, and USDT/USDC on-chain (Base and Solana). All three rails are available from a single API session.
+
+Q: How fast is settlement?
+A: Most payouts settle in under 5 minutes — to NGN bank accounts, external USD destinations, or crypto wallets.
+
+Q: What are the fees?
+A: NGN transactions: 0.85% flat. USD transactions: $1 flat under $300, $2.50 from $300–$1,000, and 0.4% above $1,000 (minimum $2.50). No setup fees, no subscriptions.
+
+Q: How do webhooks work?
+A: Every payment event triggers a signed HMAC-SHA512 payload to your endpoint. No polling needed — your server receives instant confirmation the moment funds land.
+
+Q: Is there a sandbox for testing?
+A: Yes. Use test keys (sk_test_…) to simulate payment sessions, webhooks, and payouts without real funds.
+
+Q: How do I get started?
+A: Sign up at merchant.dubupay.com, grab your API keys, and follow the docs at docs.dubupay.com. Book a demo at https://forms.gle/wAvp4gazqpJrccm77 for a guided walkthrough.
