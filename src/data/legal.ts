@@ -61,7 +61,7 @@ export const LEGAL_PAGES: Record<LegalSlug, LegalDoc> = {
   },
   terms: {
     title: "Terms of Service",
-    updated: "May 2026",
+    updated: "August 2026",
     sections: [
       {
         heading: "1. Acceptance of Terms",
@@ -82,37 +82,46 @@ export const LEGAL_PAGES: Record<LegalSlug, LegalDoc> = {
         ],
       },
       {
-        heading: "4. Fees",
+        heading: "4. Customer Identity Verification and Account Provisioning",
+        body: [
+          "Where you use DubuPay to verify your own customers' identities, you confirm that you have obtained each customer's consent to submit their Bank Verification Number (BVN), photograph, phone number, and bank account details to us and to our licensed verification partners for that purpose.",
+          "Verification results are held by DubuPay in encrypted form and may be used to answer a later verification request about the same individual, including one made by another business using DubuPay. Such a request is only answered where the requesting business already holds that individual's identifying details and the check succeeds; DubuPay does not operate a directory and identity records cannot be retrieved by anyone who does not already possess the identifying details.",
+          "Where a DubuPay NGN account is provisioned for one of your customers as part of verification or wallet setup, you confirm that your own terms authorise the opening and operation of such an account on that customer's behalf, and that the customer has been informed of it.",
+          "Verification is a billable service. Charges apply per verification request, including requests that return a negative or inconclusive result, and are debited from your DubuPay wallet balance.",
+        ],
+      },
+      {
+        heading: "5. Fees",
         body: [
           "Dubu charges a service fee of 1.5% plus applicable VAT on all local transactions and 3.5% on all international transactions. Fees are deducted from each successful transaction before settlement. We reserve the right to modify fees with 30 days' written notice.",
         ],
       },
       {
-        heading: "5. Prohibited Activities",
+        heading: "6. Prohibited Activities",
         body: [
           "You may not use Dubu for illegal activities, money laundering, terrorist financing, fraud, or any activity that violates applicable laws and regulations. We reserve the right to suspend or terminate accounts engaged in prohibited activities.",
         ],
       },
       {
-        heading: "6. Liability",
+        heading: "7. Liability",
         body: [
           'Dubu provides its services "as is" and is not liable for indirect, incidental, or consequential damages. Our total liability is limited to the fees you paid in the 12 months preceding the claim.',
         ],
       },
       {
-        heading: "7. Termination",
+        heading: "8. Termination",
         body: [
           "Either party may terminate this agreement with 30 days' written notice. Dubu may suspend or terminate your account immediately if you violate these terms. Upon termination, any pending settlements will be processed according to our standard schedule.",
         ],
       },
       {
-        heading: "8. Governing Law",
+        heading: "9. Governing Law",
         body: [
           "These terms are governed by the laws of the Federal Republic of Nigeria. Any disputes shall be resolved through arbitration in Lagos, Nigeria.",
         ],
       },
       {
-        heading: "9. Contact",
+        heading: "10. Contact",
         body: ["For questions about these terms, contact us at legal@dubupay.com."],
       },
     ],
