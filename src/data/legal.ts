@@ -115,9 +115,12 @@ export const LEGAL_PAGES: Record<LegalSlug, LegalDoc> = {
         ],
       },
       {
-        heading: "9. Governing Law",
+        heading: "9. Governing Law & Dispute Resolution",
         body: [
-          "These terms are governed by the laws of the Federal Republic of Nigeria. Any disputes shall be resolved through arbitration in Lagos, Nigeria.",
+          "These terms are governed by the laws of the Federal Republic of Nigeria.",
+          "Before starting formal proceedings, raise the dispute with us at legal@dubupay.com and give us 30 days to resolve it. If we cannot, the dispute shall be finally settled by arbitration seated in Lagos, Nigeria, under the Arbitration and Mediation Act 2023, before a single arbitrator, in English.",
+          "Class action waiver: disputes must be brought in your individual capacity, and not as a plaintiff or class member in any purported class, collective, consolidated or representative proceeding. The arbitrator may not consolidate more than one party's claims.",
+          "Either party may instead bring an individual claim in a small claims court. Nothing here removes a mandatory right you have, or your right to complain to the Central Bank of Nigeria or the Nigeria Data Protection Commission.",
         ],
       },
       {
