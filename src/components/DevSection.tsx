@@ -50,7 +50,7 @@ export function DevSection() {
           </h2>
           <p data-dev data-reveal className="mt-5 max-w-md text-base leading-relaxed text-gray sm:text-lg">
             RESTful endpoints, signed webhooks, idempotent operations, and
-            SDKs for Node.js and Python. Sessions in, settled funds out — your
+            SDKs for Node.js and Python. Sessions in, settled funds out. Your
             app orchestrates the rest.
           </p>
           <div data-dev data-reveal className="mt-8">

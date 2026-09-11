@@ -46,7 +46,7 @@ function TierCard({ tier, featured }: { tier: Tier; featured?: boolean }) {
         featured ? "border-volt/40 shadow-[0_0_64px_-28px_hsl(137_78%_46%/0.5)]" : ""
       }`}
     >
-      {/* badge slot — fixed height so both cards align row-for-row */}
+      {/* badge slot: fixed height so both cards align row-for-row */}
       <div className="mb-5 flex h-7 items-center">
         {featured ? (
           <span className="kicker-mono w-fit rounded-full border border-volt/40 bg-volt/10 px-3 py-1 text-[10px] text-volt">
@@ -152,7 +152,7 @@ export function Pricing() {
             You only pay when <span className="text-volt">you get paid</span>
           </h2>
           <p data-price-head data-reveal className="mx-auto mt-5 max-w-xl text-base text-gray sm:text-lg">
-            No hidden fees. No monthly charges. Drag the slider — the math is
+            No hidden fees. No monthly charges. Drag the slider. The math is
             the whole story.
           </p>
         </div>

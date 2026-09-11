@@ -103,7 +103,7 @@ function Terminal() {
         <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
         <span className="h-3 w-3 rounded-full bg-[#28c840]" />
         <span className="ml-3 font-mono text-[12px] text-gray-dim">
-          dubu — api.dubupay.com
+          dubu · api.dubupay.com
         </span>
         <span className="ml-auto flex items-center gap-1.5 font-mono text-[11px] text-volt">
           <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-volt pulse-dot" />
@@ -307,7 +307,7 @@ export function Hero({ started }: { started: boolean }) {
           >
             Unified payment infrastructure for businesses. Accept
             multi-currency payments, settle in under five minutes, and scale
-            globally — all through a single API.
+            globally, all through a single API.
           </p>
 
           <div data-fade className="mt-9 flex flex-wrap items-center gap-4 opacity-0">

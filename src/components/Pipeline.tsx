@@ -147,10 +147,10 @@ export function Pipeline() {
           duration: 0.25,
         }, "<");
 
-      // 01 — accept: draw the three inbound rails
+      // 01. accept: draw the three inbound rails
       tl.to(railsIn, { strokeDashoffset: 0, duration: 1, stagger: 0.15 });
 
-      // 02 — verify: core + webhook badge
+      // 02. verify: core + webhook badge
       tl.addLabel("verify", "+=0.2");
       focus(1);
       tl.to(q("[data-core-glow]"), { opacity: 1, duration: 0.4 }, "verify")
@@ -161,13 +161,13 @@ export function Pipeline() {
           "verify+=0.2"
         );
 
-      // 03 — convert: flowing dashes + fx rate
+      // 03. convert: flowing dashes + fx rate
       tl.addLabel("convert", "+=0.3");
       focus(2);
       tl.to(q("[data-flow]"), { opacity: 1, duration: 0.4, stagger: 0.1 }, "convert")
         .to(q("[data-core-rate]"), { opacity: 1, duration: 0.4 }, "convert+=0.3");
 
-      // 04 — settle: outbound rail + badges
+      // 04. settle: outbound rail + badges
       tl.addLabel("settle", "+=0.3");
       focus(3);
       tl.to(railOut, { strokeDashoffset: 0, duration: 0.8 }, "settle")

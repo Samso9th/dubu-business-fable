@@ -9,7 +9,7 @@
 
 /* ── Dubu Business design tokens ── */
 @theme {
-  /* Surfaces — true black machine room */
+  /* Surfaces: true black machine room */
   --color-void: hsl(0 0% 4%);
   --color-panel: hsl(0 0% 7%);
   --color-panel-raised: hsl(0 0% 10%);

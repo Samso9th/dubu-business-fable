@@ -28,7 +28,7 @@ export function Features() {
         </h2>
         <p className="mt-5 max-w-xl text-base leading-relaxed text-gray sm:text-lg">
           Accept, manage, convert, verify, and settle payments across USD,
-          NGN, and crypto — serve customers anywhere with one integration.
+          NGN, and crypto. Serve customers anywhere with one integration.
         </p>
 
         <div className="mt-14 grid gap-4 sm:grid-cols-6">

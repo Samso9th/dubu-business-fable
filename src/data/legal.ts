@@ -18,7 +18,7 @@ export const LEGAL_PAGES: Record<LegalSlug, LegalDoc> = {
       {
         heading: "1. Information We Collect",
         body: [
-          "We collect information you provide directly — such as your name, email address, business details, and payment information — when you create an account or use our services. We also collect technical data such as IP addresses, browser type, and usage patterns to improve our platform.",
+          "We collect information you provide directly (such as your name, email address, business details, and payment information) when you create an account or use our services. We also collect technical data such as IP addresses, browser type, and usage patterns to improve our platform.",
         ],
       },
       {
@@ -30,7 +30,7 @@ export const LEGAL_PAGES: Record<LegalSlug, LegalDoc> = {
       {
         heading: "3. Data Sharing",
         body: [
-          "We share data only with trusted partners necessary to deliver our services — such as payment processors, banking partners, and compliance providers. All partners are bound by strict data protection agreements.",
+          "We share data only with trusted partners necessary to deliver our services, such as payment processors, banking partners, and compliance providers. All partners are bound by strict data protection agreements.",
         ],
       },
       {

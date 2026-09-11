@@ -17,7 +17,7 @@ interface InfoDoc {
 export const INFO_PAGES: Record<InfoSlug, InfoDoc> = {
   about: {
     title: "About Dubu",
-    lead: "Dubu is building unified payment infrastructure for Africa and beyond. We make it simple for businesses to accept, manage, and settle payments in multiple currencies — USD, NGN, and crypto — through a single API.",
+    lead: "Dubu is building unified payment infrastructure for Africa and beyond. We make it simple for businesses to accept, manage, and settle payments in multiple currencies (USD, NGN, and crypto) through a single API.",
     blocks: [
       {
         type: "text",
@@ -43,7 +43,7 @@ export const INFO_PAGES: Record<InfoSlug, InfoDoc> = {
           {
             title: "Trust",
             description:
-              "Handling money is a privilege. We earn trust through transparency, security, and reliability — every single transaction.",
+              "Handling money is a privilege. We earn trust through transparency, security, and reliability, on every single transaction.",
           },
           {
             title: "Simplicity",

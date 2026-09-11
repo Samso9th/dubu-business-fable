@@ -72,20 +72,20 @@ export const PIPELINE_STEPS = [
     id: "convert",
     label: "03 · Convert",
     title: "The FX engine does the math",
-    body: "Controlled rates between USD, NGN, and stablecoins — transparent pricing, no hidden spread.",
+    body: "Controlled rates between USD, NGN, and stablecoins: transparent pricing, no hidden spread.",
   },
   {
     id: "settle",
     label: "04 · Settle",
     title: "Funds land in under 5 minutes",
-    body: "NGN bank accounts, external USD destinations, or crypto wallets — routed by rules you define.",
+    body: "NGN bank accounts, external USD destinations, or crypto wallets, routed by rules you define.",
   },
 ];
 
 export const FEATURES = [
   {
     title: "Cross-border payments",
-    body: "Accept USD, NGN, and stablecoins in one unified flow — built for international customers and Nigerian collections.",
+    body: "Accept USD, NGN, and stablecoins in one unified flow, built for international customers and Nigerian collections.",
     tag: "RAILS",
     size: "lg",
   },
@@ -110,7 +110,7 @@ export const FEATURES = [
   },
   {
     title: "Crypto payments",
-    body: "USDT/USDC deposit addresses, withdrawals, and on-chain transfers — auto-reconciled.",
+    body: "USDT/USDC deposit addresses, withdrawals, and on-chain transfers, auto-reconciled.",
     tag: "CHAIN",
     size: "sm",
   },
@@ -122,7 +122,7 @@ export const FEATURES = [
   },
   {
     title: "Fast payouts",
-    body: "Withdraw to NGN banks, send crypto to external wallets, or settle in USD — most payouts in under 5 minutes.",
+    body: "Withdraw to NGN banks, send crypto to external wallets, or settle in USD, most payouts in under 5 minutes.",
     tag: "SPEED",
     size: "med",
   },
@@ -274,7 +274,7 @@ export const PRICING: { local: PricingTier; intl: PricingTier } = {
 
 export const REVENUE_SPLIT = {
   title: "Revenue split",
-  body: "Processing exceptional volumes? We offer custom revenue-sharing partnerships for merchants doing ₦100M+ monthly — instead of a flat fee, we share in your growth.",
+  body: "Processing exceptional volumes? We offer custom revenue-sharing partnerships for merchants doing ₦100M+ monthly. Instead of a flat fee, we share in your growth.",
   points: [
     "Custom revenue-sharing model",
     "Reduced effective rate as volume grows",
